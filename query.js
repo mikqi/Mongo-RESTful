@@ -1,5 +1,9 @@
 var People = require('./app/models/people');
 
+/**
+ * Show all data
+ * @return {Object}
+ */
 var getAllData = function (req, res) {
 
     People.find(function (err, data) {
@@ -11,6 +15,10 @@ var getAllData = function (req, res) {
 
   };
 
+/**
+ * Show 1 Datum
+ * @return {Object}
+ */
 var findOne = function (req, res) {
 
     People.find({_id: req.params.id}, function (err, data) {
@@ -22,6 +30,10 @@ var findOne = function (req, res) {
 
   };
 
+/**
+ * Post Data
+ * @return {Object}
+ */
 var postData = function (req, res) {
 
     var person = new People({
@@ -38,6 +50,9 @@ var postData = function (req, res) {
 
   };
 
+/**
+ * Delete 1 Data
+ */
 var deleteOne = function (req, res) {
 
     People.remove({_id: req.params.id}, function (err, data) {
@@ -48,6 +63,9 @@ var deleteOne = function (req, res) {
     });
   };
 
+/**
+ * Updaate 1 Data
+ */
 var updateOne = function (req, res) {
 
     People.findById(req.params.id, function (err, data) {
@@ -67,6 +85,9 @@ var updateOne = function (req, res) {
     });
   };
 
+/**
+ * Export all Object
+ */
 module.exports.getAllData = getAllData;
 module.exports.findOne = findOne;
 module.exports.postData = postData;

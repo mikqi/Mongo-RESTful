@@ -1,7 +1,11 @@
 var express = require("express"),
     People = require('./query');
 
+/**
+ * Set Routing buat people
+ */
 var routerPeople = express.Router();
+
 // xxx/api
 routerPeople.route('/')
   .get(People.getAllData)
@@ -13,4 +17,8 @@ routerPeople.route('/:id')
   .delete(People.deleteOne)
   .put(People.updateOne);
 
+/**
+ * Export object
+ * @type {object}
+ */
 module.exports.routerPeople = routerPeople;
